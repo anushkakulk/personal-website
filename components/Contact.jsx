@@ -5,8 +5,6 @@ import { AiOutlineMail } from "react-icons/ai";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { FaSpotify, FaDiscord, FaGithub, FaLinkedinIn } from "react-icons/fa";
 
-
-
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import ReactTypingEffect from "react-typing-effect";
 

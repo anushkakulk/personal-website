@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import tictactoegame from '../public/assets/projects/tictactoegameplay.gif'
+import tictactoegame from "../public/assets/projects/tictactoegameplay.gif";
 import { BsCodeSlash, BsArrowRight } from "react-icons/bs";
 import Link from "next/link";
 
@@ -27,21 +27,40 @@ const tictactoe = () => {
           <p>~/Projects/TicTacToeBot</p>
           <h2 className="py-2">Overview</h2>
           <p className="py-2 ">
-            While studying Robotic Science and Systems, I had the opportunity to apply what I was learning regarding kinematics, computer vision, path planning, and homogenous transformations and build a cool project. 
-            Landing on a tictactoe playing robot arm, I worked with a team of developers to make this fun prospect a reality! The major task of getting the robot to play was split into 4 manageable
-            tasks, focusing on Computer Vision (Task: Detect the drawn board, X’s and O’s, and
-            update an internal gamestate), Manipulation (Task: Program the Robot to draw a
-            recognizable O shape), Interfacing Computer Vision and Manipulation (Task: Find the
-            transformation from board in camera’s frame to board in robot’s frame), and Optimal
-            Move (Task: Use a minimax algorithm that will always choose the best open square for
-            the robot to make its next move based on CV parsed gamestate). 
+            While studying Robotic Science and Systems, I had the opportunity to
+            apply what I was learning regarding kinematics, computer vision,
+            path planning, and homogenous transformations and build a cool
+            project. Landing on a tictactoe playing robot arm, I worked with a
+            team of developers to make this fun prospect a reality! The major
+            task of getting the robot to play was split into 4 manageable tasks,
+            focusing on Computer Vision (Task: Detect the drawn board, X’s and
+            O’s, and update an internal gamestate), Manipulation (Task: Program
+            the Robot to draw a recognizable O shape), Interfacing Computer
+            Vision and Manipulation (Task: Find the transformation from board in
+            camera’s frame to board in robot’s frame), and Optimal Move (Task:
+            Use a minimax algorithm that will always choose the best open square
+            for the robot to make its next move based on CV parsed gamestate).
           </p>
           <p className="py-2 ">
-              Challenges were certainly present, especially when it came to the computer vision aspect of the project. Rather than opting for a convolutional neural network to train the robot to recognize the shapes, we decided to use more traditional CV to detect the board, X’s and O’s. 
-              This was a great learning experience as I was able to understand the limitations of traditional CV, as a lot of the time, the robot would not be able to detect the board or the pieces when moved to different locations with different lighting, needing on the fly changes to pre-processing thresholds.
-              Similarly, the robot itself was a challenge to work with, as the robot arm was not as precise as I would have liked, leading to a lot of trial and error when it came to drawing the O’s. The inverse kinematics to determine the location of the end effector gets calculated correctly, yet as the end effector moves further from its base, the error in the end effector’s location increases.
-              Regardless, the project was a great success, and I was able to learn a lot about being adaptable when faced with challenges, in addition to robotics, computer vision, and software development in the process!
-          </p> 
+            Challenges were certainly present, especially when it came to the
+            computer vision aspect of the project. Rather than opting for a
+            convolutional neural network to train the robot to recognize the
+            shapes, we decided to use more traditional CV to detect the board,
+            X’s and O’s. This was a great learning experience as I was able to
+            understand the limitations of traditional CV, as a lot of the time,
+            the robot would not be able to detect the board or the pieces when
+            moved to different locations with different lighting, needing on the
+            fly changes to pre-processing thresholds. Similarly, the robot
+            itself was a challenge to work with, as the robot arm was not as
+            precise as I would have liked, leading to a lot of trial and error
+            when it came to drawing the O’s. The inverse kinematics to determine
+            the location of the end effector gets calculated correctly, yet as
+            the end effector moves further from its base, the error in the end
+            effector’s location increases. Regardless, the project was a great
+            success, and I was able to learn a lot about being adaptable when
+            faced with challenges, in addition to robotics, computer vision, and
+            software development in the process!
+          </p>
           <div className="flex items-center justify-between my-4 w-full sm:w-[80%] py-4">
             <div className="logo-container logo-item mr-2 flex rounded-full shadow-lg shadow-[#8FC0A9] p-6">
               <a

@@ -2,37 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-
- html {
-  scroll-behavior: smooth!important;
-  }
+html {
+  scroll-behavior: smooth !important;
+}
 
 @layer base {
   body {
-      @apply bg-[#F5F5F3] text-[#100F0D] tracking-wide
+    @apply bg-[#F5F5F3] text-[#100F0D] tracking-wide;
   }
 
   p {
-    @apply text-gray-600
+    @apply text-gray-600;
   }
-  h1, h2, h3, h4, h5, h5 {
-    @apply font-bold
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h5 {
+    @apply font-bold;
   }
 
   h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl
+    @apply text-4xl sm:text-5xl md:text-6xl;
   }
 
   h2 {
-    @apply text-3xl sm:text-4xl
+    @apply text-3xl sm:text-4xl;
   }
 
   li {
-    @apply cursor-pointer
+    @apply cursor-pointer;
   }
 
   button {
-    @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#8FC0A9] to-[#C8D5B9] text-white
+    @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#8FC0A9] to-[#C8D5B9] text-white;
   }
 }
 .logo-container {
@@ -49,7 +53,7 @@
 }
 
 .logo-item:nth-child(3) {
-  animation-delay: .8s;
+  animation-delay: 0.8s;
 }
 
 .logo-item:nth-child(4) {
@@ -118,7 +122,7 @@ video {
 }
 
 .project-item:nth-child(3) {
-  animation-delay: .8s;
+  animation-delay: 0.8s;
 }
 
 .project-item:nth-child(4) {
@@ -175,15 +179,12 @@ iframe:hover {
   z-index: -1;
   transform: scaleX(0);
   transform-origin: bottom right;
-  transition: transform .3s ease;
+  transition: transform 0.3s ease;
 }
-
 
 .bar-progress {
   @apply transition-all hover:scale-105 ease-in duration-300;
 }
-
-
 
 .hoverEffect:hover::before {
   transform: scaleX(1);
@@ -195,7 +196,6 @@ iframe:hover {
     font-size: 0.8rem;
   }
 }
-
 
 /* Set the height of the carousel on larger screens */
 .carousel {
@@ -215,8 +215,6 @@ iframe:hover {
     margin: 0 auto; /* center the container horizontally */
   }
 }
-
-
 
 /* 
 :root {

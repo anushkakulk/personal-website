@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import rev from '../public/assets/projects/reversidemo.gif'
+import rev from "../public/assets/projects/reversidemo.gif";
 import { BsCodeSlash, BsArrowRight } from "react-icons/bs";
 import Link from "next/link";
 
@@ -27,40 +27,63 @@ const reversi = () => {
           <p>~/Projects/Reversi</p>
           <h2 className="py-2">Overview</h2>
           <p className="py-2 ">
-           While studying object oriented design practices, I developed a Java implementation of the popular board game Reversi/Othello on a hexagonal 
-           board. I followed the Model View Controller paradigm, which allowed for loose coupling between components, efficient unit and 
-           integration tests/debugging, and naturally, encapsulation. The hexagonal board was designed with Java Swing GUI components. 
-           Overall the design resulted in a modular and maintanable system, allowing for extensibility (added multiple extra 
-           features without changing existing code! like hints on the GUI view, new AI strategies, etc.) 
+            While studying object oriented design practices, I developed a Java
+            implementation of the popular board game Reversi/Othello on a
+            hexagonal board. I followed the Model View Controller paradigm,
+            which allowed for loose coupling between components, efficient unit
+            and integration tests/debugging, and naturally, encapsulation. The
+            hexagonal board was designed with Java Swing GUI components. Overall
+            the design resulted in a modular and maintanable system, allowing
+            for extensibility (added multiple extra features without changing
+            existing code! like hints on the GUI view, new AI strategies, etc.)
           </p>
           <p>
-  The gameplay is designed to cater to various player types, supporting both human and AI players with distinct and customizable strategies. The codebase follows organization with packages structured around key interfaces such as model, view, controller, and player.
-</p>
-<ul className="py-2">
-<p className="text-center py-2">Notable Patterns and Design Paradigms, complementing the MVC architecture, include:</p>
-  <li>
-    <strong>Strategy Pattern:</strong> Enables flexible, interchangeable, and composite algorithms for different AI player strategies.
-  </li>
-  <li>
-    <strong>Observer Pattern:</strong> Facilitates communication between components, ensuring efficient updates.
-  </li>
-  <li>
-    <strong>Delegate Pattern:</strong> Employs delegation for modular and reusable code structures.
-  </li>
-  <li>
-    <strong>Factory Pattern:</strong> Parses Command Line Inputs to enhance player object creation.
-  </li>
-  <li>
-    <strong>Adapter Pattern:</strong> Bridges incompatible interfaces, allowing for clean interaction.
-  </li>
-  <li>
-    <strong>Decorator Pattern:</strong> Dynamically attaches additional responsibilities to objects (like adding a hint option to the view), promoting extensibility.
-  </li>
-</ul>
-<p>
-  This amalgamation of a well-structured MVC architecture, diverse player strategies, and an intuitive GUI demonstrates my ability to transform intricate concepts into cohesive and captivating software solutions. This project has not only enhanced my technical proficiency but has also inspired me to seek out more fun and meaningful endeavors to apply my classroom knowledge!
-</p>
-
+            The gameplay is designed to cater to various player types,
+            supporting both human and AI players with distinct and customizable
+            strategies. The codebase follows organization with packages
+            structured around key interfaces such as model, view, controller,
+            and player.
+          </p>
+          <ul className="py-2">
+            <p className="text-center py-2">
+              Notable Patterns and Design Paradigms, complementing the MVC
+              architecture, include:
+            </p>
+            <li>
+              <strong>Strategy Pattern:</strong> Enables flexible,
+              interchangeable, and composite algorithms for different AI player
+              strategies.
+            </li>
+            <li>
+              <strong>Observer Pattern:</strong> Facilitates communication
+              between components, ensuring efficient updates.
+            </li>
+            <li>
+              <strong>Delegate Pattern:</strong> Employs delegation for modular
+              and reusable code structures.
+            </li>
+            <li>
+              <strong>Factory Pattern:</strong> Parses Command Line Inputs to
+              enhance player object creation.
+            </li>
+            <li>
+              <strong>Adapter Pattern:</strong> Bridges incompatible interfaces,
+              allowing for clean interaction.
+            </li>
+            <li>
+              <strong>Decorator Pattern:</strong> Dynamically attaches
+              additional responsibilities to objects (like adding a hint option
+              to the view), promoting extensibility.
+            </li>
+          </ul>
+          <p>
+            This amalgamation of a well-structured MVC architecture, diverse
+            player strategies, and an intuitive GUI demonstrates my ability to
+            transform intricate concepts into cohesive and captivating software
+            solutions. This project has not only enhanced my technical
+            proficiency but has also inspired me to seek out more fun and
+            meaningful endeavors to apply my classroom knowledge!
+          </p>
 
           <div className="flex items-center justify-between my-4 w-full sm:w-[80%] py-4">
             <div className="logo-container logo-item mr-2 flex rounded-full shadow-lg shadow-[#8FC0A9] p-6">
