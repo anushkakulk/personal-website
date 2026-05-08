@@ -63,7 +63,7 @@ const Navbar = () => {
               src={navLogo}
               alt="/"
               width="300 "
-              height="100"
+              height="75"
               className="justify-start"
             />
           </Link>
@@ -142,7 +142,7 @@ const Navbar = () => {
               </Link>
               <Link href="/skills">
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
-                  Skills
+                  Experience
                 </li>
               </Link>
               <Link href="/projects">

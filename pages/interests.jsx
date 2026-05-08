@@ -100,8 +100,8 @@ const Interests = () => {
   const validSongUrl = isPlaying && songUrl && typeof songUrl === "string";
 
   return (
-    <div id="interests" className="w-full bg-[#f7faf7]" ref={interestsRef}>
-      <div className="max-w-[1240px] mx-auto py-20 px-4 sm:px-6">
+    <div id="interests" className="w-full py-10" ref={interestsRef}>
+      <div className="max-w-[1240px] mx-auto py-10 px-4 sm:px-6">
         <div className="rounded-[2rem] bg-white/95 border border-slate-200 shadow-[0_25px_80px_-40px_rgba(15,23,42,0.25)] p-8">
           <div className="max-w-5xl mx-auto text-center">
             <div className="space-y-6">

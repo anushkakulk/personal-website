@@ -1,191 +1,220 @@
-import Image from "next/image";
-import React from "react";
-import { FaJava, FaPython, FaReact, FaGithub } from "react-icons/fa";
-import { IoLogoJavascript, IoLogoCss3, IoLogoHtml5 } from "react-icons/io";
-import { BsGit } from "react-icons/bs";
-import {
-  SiCplusplus,
-  SiScikitlearn,
-  SiTensorflow,
-  SiMysql,
-} from "react-icons/si";
-import ReactTypingEffect from "react-typing-effect";
+import React, { useState, useEffect } from "react";
+import { FaJava, FaPython } from "react-icons/fa";
+import { IoLogoJavascript } from "react-icons/io";
+import { SiCplusplus, SiMysql, SiRos, SiPytorch, SiDocker } from "react-icons/si";
 
-const skillsList = [
+const experience = [
   {
-    name: "Java",
-    logo: <FaJava size={30} />,
-    proficiency: 0.8,
-    experience:
-      "Years: 4 | Classes: AP CS A, Fundamentals of Computer Science II, Object Oriented Design",
+    company: "Amazon Robotics",
+    role: "Sensor Embedded Software, Co-op",
+    date: "Jul 2024 to Dec 2024 · Aug 2025 to Dec 2025 · North Reading, MA",
+    badge: "Co-op · 2 terms",
+    badgeColor: "teal",
+    bullets: [
+      { text: "Engineered C/C++ drivers and Python software for calibration and operation of a next-gen indirect time-of-flight sensor on NVIDIA Jetson Orin", highlight: "NVIDIA Jetson Orin" },
+      { text: "Automated motor-based calibration system, achieving 40% faster alignment and reprojection error under 0.02 px", highlight: "40% faster alignment" },
+    ],
   },
   {
-    name: "Python",
-    logo: <FaPython size={30} />,
-    proficiency: 0.7,
-    experience:
-      "Years: 2.5 | Classes: Mathematics of Data Models, Robotic Science and Systems, Machine Learning and Data Mining ",
+    company: "Meta",
+    role: "Production Systems Engineer, Intern",
+    date: "May 2025 to Aug 2025 · Menlo Park, CA",
+    badge: "Intern",
+    badgeColor: "blue",
+    bullets: [
+      { text: "Deployed a containerized microservice with CI/CD to automate health checks for GB300 liquid-cooled GPU servers with NVIDIA B300 GPUs", highlight: "GB300 liquid-cooled GPU servers" },
+      { text: "Built 75+ hardware and config checks validating servers at datacenter cluster scale" },
+    ],
   },
   {
-    name: "C/C++",
-    logo: <SiCplusplus size={30} />,
-    proficiency: 0.65,
-    experience: "Years: 2 | Classes: Programming in C++, Computer Systems.",
-  },
-
-  {
-    name: "Front-end",
-    logos: [<IoLogoHtml5 />, <IoLogoCss3 />, <IoLogoJavascript />],
-    proficiency: 0.5,
-    experience: "Years: 1 | Classes: Web Application Development",
-  },
-  {
-    name: "React.js",
-    logo: <FaReact size={30} />,
-    proficiency: 0.35,
-    experience: "Years: 1 | No Formal Classes. Working on this website :)",
-  },
-  {
-    name: "Git",
-    logo: <BsGit size={30} />,
-    proficiency: 0.4,
-    experience: "Years: 2.5 | Used for most classes and projects",
-  },
-  {
-    name: "SQL",
-    logo: <SiMysql size={30} />,
-    proficiency: 0.4,
-    experience: "Years: 1.5 | Classes: Database Design",
+    company: "NASA Jet Propulsion Laboratory",
+    role: "Flight Software Intern, Mars Sample Return",
+    date: "Jan 2025 to Mar 2025 · Remote",
+    badge: "Intern",
+    badgeColor: "amber",
+    bullets: [
+      { text: "Developed C-based testing frameworks for the Mars Sample Return Lander's vision compute element, including 3D pose estimation algorithms" },
+      { text: "Benchmarked Kalman filtering and ML-based image processing, achieving 50% faster processing than Mars 2020", highlight: "50% faster processing" },
+    ],
   },
 ];
 
-const Skills = () => {
-  const getPercentage = (proficiency) => `${Math.round(proficiency * 100)}%`;
+const skillsList = [
+  { name: "Python", Icon: FaPython, proficiency: 92, note: "Amazon, Meta, JPL, coursework" },
+  { name: "C / C++", Icon: SiCplusplus, proficiency: 85, note: "Sensor drivers, flight software, AerospaceNU" },
+  { name: "Java", Icon: FaJava, proficiency: 80, note: "4 years, OOD, AP CS, Fundamentals" },
+  { name: "ROS2", Icon: SiRos, proficiency: 78, note: "SLAM, motion planning, robot control" },
+  { name: "PyTorch", Icon: SiPytorch, proficiency: 75, note: "Robot Grasp CNN, ML and NLP coursework" },
+  { name: "JavaScript / TS", Icon: IoLogoJavascript, proficiency: 72, note: "This site :) and SE coursework" },
+  { name: "Docker", Icon: SiDocker, proficiency: 70, note: "Microservices at Amazon and Meta" },
+  { name: "SQL", Icon: SiMysql, proficiency: 65, note: "Database Design, Meta health checks" },
+];
+
+const toolGroups = [
+  {
+    title: "Robotics & embedded",
+    items: ["ROS2", "CUDA", "OpenCV", "PCL", "iSAM2", "Kalman filtering", "NVIDIA Jetson", "Yocto"],
+  },
+  {
+    title: "ML & data",
+    items: ["PyTorch", "TensorFlow", "scikit-learn", "pandas"],
+  },
+  {
+    title: "Infrastructure & dev",
+    items: ["Git", "Linux", "Docker", "CI/CD", "AWS", "React", "Node.js"],
+  },
+  {
+    title: "Coursework",
+    items: [
+      "Algorithms & Data",
+      "Machine Learning & Data Mining",
+      "Artificial Intelligence",
+      "Robotic Science and Systems",
+      "Mobile Robotics",
+      "Natural Language Processing",
+      "Computer Systems",
+    ],
+  },
+];
+
+const badgeStyles = {
+  teal: "bg-[#E6F4EF] text-[#2F6A5F]",
+  blue: "bg-[#E6EEF8] text-[#1E4A80]",
+  amber: "bg-[#FBF0DC] text-[#7A4C0A]",
+};
+
+const renderWithHighlight = (text, highlight) => {
+  if (!highlight) return text;
+  const parts = text.split(highlight);
+  return (
+    <>
+      {parts[0]}
+      <span className="inline-block bg-[#F0FAF4] text-[#2F6A5F] text-xs font-medium rounded px-1.5 py-0.5 ml-1">
+        {highlight}
+      </span>
+      {parts[1]}
+    </>
+  );
+};
+
+const TimelineItem = ({ item }) => {
+  const [open, setOpen] = useState(false);
 
   return (
-    <div id="skills" className="w-full p-2 lg:h-screen">
-      <div className="max-w-[1240px] mx-auto flex flex-col justify-center h-full py-16 xl:py-40">
-        <div className="grid grid-cols-3 gap-2 my-8 skills-container skills-item">
-          <div className="w-full">
-            <h2 className="uppercase text-2xl tracking-widest text-[#68B0AB] lg:text-3xl text-center py-7">
-              <ReactTypingEffect
-                text="skills"
-                eraseDelay={5000}
-                eraseSpeed={100}
-                typingDelay={1000}
-              />
-            </h2>
+    <div className="relative mb-7 last:mb-0 pl-7">
+      <div
+        className={`absolute left-0 top-2.5 w-2.5 h-2.5 rounded-full border-2 bg-white transition-colors duration-200 ${
+          open ? "border-[#3F8B7D]" : "border-slate-300"
+        }`}
+      />
+      <div
+        className={`bg-white border rounded-2xl px-5 py-4 cursor-pointer transition-all duration-200 hover:translate-x-0.5 ${
+          open ? "border-[#3F8B7D]" : "border-slate-200 hover:border-slate-300"
+        }`}
+        onClick={() => setOpen(!open)}
+      >
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex-1">
+            <p className="font-medium text-slate-900">{item.company}</p>
+            <p className="text-sm text-slate-500 mt-0.5">{item.role}</p>
+            <p className="text-xs text-slate-400 mt-0.5">{item.date}</p>
           </div>
-          {skillsList.map((skill, index) => (
-            <div
-              key={index}
-              className="group relative overflow-hidden shadow-xl rounded-xl py-10 hover:scale-105 ease-in duration-300"
-            >
-              <div className="grid grid-cols-2 justify-center items-center">
-                <div className="m-auto skills-container skills-item">
-                  {skill.name === "Front-end" || skill.name === "ML" ? (
-                    <div className="flex flex-row justify-center items-center">
-                      {skill.logos.map((logo, iconIndex) => (
-                        <div key={iconIndex}>{logo}</div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div>{skill.logo}</div>
-                  )}
-                </div>
+          <span className={`shrink-0 text-xs font-medium px-3 py-1 rounded-full ${badgeStyles[item.badgeColor]}`}>
+            {item.badge}
+          </span>
+        </div>
+        {open && (
+          <ul className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
+            {item.bullets.map((b, i) => (
+              <li key={i} className="text-sm text-slate-500 leading-relaxed pl-3 relative">
+                <span className="absolute left-0 text-[#68B0AB]">·</span>
+                {renderWithHighlight(b.text, b.highlight)}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+};
 
-                <h3 className="text-xs sm:text-lg py">{skill.name}</h3>
-                <div className="bar-container absolute inset-0 rounded-xl overflow-hidden bg-gradient-to-r from-[#8FC0A9] to-[#C8D5B9] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="flex flex-col items-center text-center justify-center m-auto">
-                    <div className="flex justify-between mb-1">
-                      <span className="text-base font-medium text-blue-700 dark:text-white">
-                        Proficiency:
+const SkillCard = ({ skill, animate }) => {
+  const Icon = skill.Icon;
+  return (
+    <div className="group bg-white border border-slate-200 rounded-xl p-4 hover:border-[#3F8B7D] transition-colors duration-200">
+      <div className="flex items-center gap-2 mb-3">
+        <span className="text-[#3F8B7D]">
+          <Icon size={20} />
+        </span>
+        <p className="text-sm font-medium text-slate-900">{skill.name}</p>
+      </div>
+      <div className="h-1 w-full bg-slate-100 rounded-full overflow-hidden">
+        <div
+          className="h-full rounded-full bg-gradient-to-r from-[#68B0AB] to-[#3F8B7D] transition-all duration-700 ease-out"
+          style={{ width: animate ? `${skill.proficiency}%` : "0%" }}
+        />
+      </div>
+      <p className="text-xs text-slate-400 mt-2 leading-snug">{skill.note}</p>
+    </div>
+  );
+};
+
+const Skills = () => {
+  const [barsAnimated, setBarsAnimated] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setBarsAnimated(true), 50);
+  }, []);
+
+  return (
+    <div id="skills" className="w-full py-20 px-4 sm:px-6">
+      <div className="mx-auto max-w-[1240px]">
+
+        <div className="space-y-12">
+          <section>
+            <div className="mb-6">
+              <p className="text-lg uppercase tracking-[0.3em] text-[#3F8B7D]">Experience</p>
+            </div>
+            <div className="relative pl-4">
+              <div className="absolute left-1.5 top-2 bottom-2 w-px bg-slate-200" />
+              {experience.map((item, i) => (
+                <TimelineItem key={i} item={item} />
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <div className="mb-6">
+              <p className="text-lg uppercase tracking-[0.3em] text-[#3F8B7D]">Skills</p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+              {skillsList.map((skill, i) => (
+                <SkillCard key={i} skill={skill} animate={barsAnimated} />
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <div className="mb-6">
+              <p className="text-lg uppercase tracking-[0.3em] text-[#3F8B7D]">Tools & coursework</p>
+            </div>
+            <div className="flex flex-col gap-6">
+              {toolGroups.map((group) => (
+                <div key={group.title} className="rounded-[1.75rem] border border-slate-200 bg-white p-5 shadow-sm">
+                  <p className="text-sm font-medium text-slate-500 uppercase tracking-widest mb-3">{group.title}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <span key={item} className="text-sm text-slate-600 bg-slate-100 border border-slate-200 rounded-full px-3 py-1.5">
+                        {item}
                       </span>
-                      <span className="text-base text-center font-medium text-blue-700 dark:text-white">
-                        &nbsp;{getPercentage(skill.proficiency)}
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                      <div
-                        className="bg-blue-600 h-2.5 rounded-full"
-                        style={{
-                          width: getPercentage(skill.proficiency),
-                        }}
-                      ></div>
-                    </div>
-                    <div className="hidden sm:block">
-                      <p className="text-sm sm:text-xs sm:p-2 md:text-xs lg:text-xs xl:text-sm 2xl:text-sm">
-                        Experience:{" "}
-                        <span className="percentage">{skill.experience}</span>
-                      </p>
-                    </div>
+                    ))}
                   </div>
-                  {/* <div className="bar-container absolute inset-0 rounded-xl overflow-hidden bg-gradient-to-r from-[#8FC0A9] to-[#C8D5B9] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div
-                      className="bar-progress h-5 bg-white transition-width hover:scale-105 ease-in duration-300"
-                      style={{
-                        width: getPercentage(skill.proficiency),
-                      }}
-                    ></div>
-                    <p className="text-white text-sm">
-                      Proficiency:{" "}
-                      <span className="percentage">
-                        {getPercentage(skill.proficiency)}
-                      </span>
-                      <p className="text-sm sm:text-xs sm:p-2 md:text-xs lg:text-xs xl:text-sm 2xl:text-sm">
-                        Experience:{" "}
-                        <span className="percentage">{skill.experience}</span>
-                      </p>
-                    </p>
-                  </div> */}
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </section>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="text-center lg:text-left">
-            <p className="text-[#68B0AB] text-center text-lg mb-4">
-              Other Languages, Tools, and Frameworks
-            </p>
-            <div className="grid grid-cols-2 gap-4 py-4">
-              <div className="justify-center items-center text-center">
-                <p>Docker</p>
-                <p>Node.js</p>
-                <p>Tailwind</p>
-                <p>Tableau</p>
-              </div>
-              <div className="justify-center items-center text-center">
-                <p>LaTeX</p>
-                <p>Microsoft Office</p>
-                <p>TensorFlow and scikit-learn</p>
-                <p>Linux</p>
-              </div>
-            </div>
-          </div>
-          <div className="text-justify m-auto">
-            <p className="text-[#68B0AB] text-center text-lg ">
-              Relevant Coursework
-            </p>
-            <div className="grid grid-cols-2  gap-6 py-4">
-              <div className="justify-center items-center text-center">
-                <p className="py-1">Algorithms and Data</p>
-                <p className="py-1">Object Oriented Design</p>
-                <p className="py-1">Programming in C++</p>
-                <p className="py-1">Machine Learning & Data Mining</p>
-              </div>
-              <div className="justify-center items-center text-center">
-                <p className="py-1">Database Design</p>
-                <p className="py-1">Computer Systems</p>
-                <p className="py-1">Foundations of Cybersecurity</p>
-                <p className="py-1">Robotic Science and Systems</p>
-                {/* <p className="py-1">Artificial Intelligence</p>
-                <p className="py-1">Robotic Science and Systems</p>
-                <p className="py-1">Computer Systems</p> */}
-              </div>
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
   );

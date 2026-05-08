@@ -43,13 +43,6 @@ const About = () => {
               Propulsion Laboratory, I benchmarked flight software and
               perception algorithms for the Mars Sample Return mission.
             </p>
-            <p className="py-2">
-              I really value the process of learning and work best when thrown
-              into unknown territory. Whether it's optimizing embedded systems,
-              scaling infrastructure, or building perception algorithms for
-              space exploration, I'm excited to keep pushing the boundaries of
-              what's possible in robotics and AI.
-            </p>
           </div>
         </div>
 
@@ -59,7 +52,7 @@ const About = () => {
               className="rounded-xl"
               src={profilepic}
               alt="/"
-              width="325"
+              width="400"
               height="75"
             />
           </div>
