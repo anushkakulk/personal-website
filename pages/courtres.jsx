@@ -40,7 +40,8 @@ const courtres = () => {
           <p className="py-2 ">
             This project allowed me to learn how to efficiently design larger
             programs in C++ while ensuring safe memory allocation and
-            deallocation. In addition, I gained more experience navigating work with a team of other developers. 
+            deallocation. In addition, I gained more experience navigating work
+            with a team of other developers.
           </p>
           <p className="py-2 "></p>
           <div className="flex items-center justify-between my-4 w-full sm:w-[80%] py-4">

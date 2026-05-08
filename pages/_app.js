@@ -1,18 +1,17 @@
-import '../styles/globals.css'
-import { Analytics } from '@vercel/analytics/react';
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer';
+import "../styles/globals.css";
+import { Analytics } from "@vercel/analytics/react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
-
- function App({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   return (
-  <>
-  <Navbar />
-   <Component {...pageProps} />
-   <Footer />
-   <Analytics />
-   </>
+    <>
+      <Navbar />
+      <Component {...pageProps} />
+      <Footer />
+      <Analytics />
+    </>
   );
 }
 
-export default App
+export default App;

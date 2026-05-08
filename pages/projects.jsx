@@ -1,87 +1,83 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
-import multipleImg from '../public/assets/projects/multiPL-E.png';
-import aeroImg from '../public/assets/projects/revised-aero.png'
-import stonksImg from '../public/assets/projects/stonks.gif'
-import reversi from '../public/assets/projects/reversidemo.gif'
-import webImg from '../public/assets/covers/thisone.png'
-import tictactoe from '../public/assets/projects/tictactoegameplay.gif'
-import robotgrasp from '../public/assets/projects/robot-grasper.png'
-import courtImg from '../public/assets/projects/courtUML.png';
-import ReactTypingEffect from 'react-typing-effect';
-import ProjectItem from '../components/ProjectItem';
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import multipleImg from "../public/assets/projects/multiPL-E.png";
+import aeroImg from "../public/assets/projects/revised-aero.png";
+import stonksImg from "../public/assets/projects/stonks.gif";
+import reversi from "../public/assets/projects/reversidemo.gif";
+import webImg from "../public/assets/covers/thisone.png";
+import tictactoe from "../public/assets/projects/tictactoegameplay.gif";
+import robotgrasp from "../public/assets/projects/robot-grasper.png";
+import courtImg from "../public/assets/projects/courtUML.png";
+import ReactTypingEffect from "react-typing-effect";
+import ProjectItem from "../components/ProjectItem";
 
 const Projects = () => {
   return (
-    <div id='projects' className='w-full'>
-      <div className='max-w-[1240px] mx-auto py-20'>
-      <h2 className="uppercase text-3xl p-2 py-2 sm:py-8 tracking-widest text-[#68B0AB]">
-          <ReactTypingEffect text = "Projects" eraseDelay={5000} eraseSpeed={100} typingDelay={1000}/>
-          </h2>
-        <div className='grid md:grid-cols-2 gap-8'>
-        
-        <ProjectItem
-            title='Robot Grasp Detection Model'
+    <div id="projects" className="w-full">
+      <div className="max-w-[1240px] mx-auto py-20">
+        <h2 className="uppercase text-3xl p-2 py-2 sm:py-8 tracking-widest text-[#68B0AB]">
+          <ReactTypingEffect
+            text="Projects"
+            eraseDelay={5000}
+            eraseSpeed={100}
+            typingDelay={1000}
+          />
+        </h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          <ProjectItem
+            title="Robot Grasp Detection Model"
             backgroundImg={robotgrasp}
-            projectUrl='/graspsim'
-            tech='Python'
-            className = " project-container project-item"
-            
+            projectUrl="/graspsim"
+            tech="Python"
+            className=" project-container project-item"
           />
-    
-        <ProjectItem
-            title='Tic Tac Toe Robot Arm'
+
+          <ProjectItem
+            title="Tic Tac Toe Robot Arm"
             backgroundImg={tictactoe}
-            projectUrl='/tictactoe'
-            tech='ROS, Python'
-            className = " project-container project-item"
-            
+            projectUrl="/tictactoe"
+            tech="ROS, Python"
+            className=" project-container project-item"
           />
-          
-        <ProjectItem
-            title='Reversi - MVC design'
+
+          <ProjectItem
+            title="Reversi - MVC design"
             backgroundImg={reversi}
-            projectUrl='/reversi'
-            tech='Java'
-            className = " project-container project-item"
-            
+            projectUrl="/reversi"
+            tech="Java"
+            className=" project-container project-item"
           />
           <ProjectItem
-            title='AerospaceNU Engine Control Software'
+            title="AerospaceNU Engine Control Software"
             backgroundImg={aeroImg}
-            projectUrl='/aero'
-            tech='C++'
-            className = " project-container project-item"
-            
+            projectUrl="/aero"
+            tech="C++"
+            className=" project-container project-item"
           />
           <ProjectItem
-            title='Court Reservation System'
+            title="Court Reservation System"
             backgroundImg={courtImg}
-            projectUrl='/courtres'
-            tech='C++'
-            
+            projectUrl="/courtres"
+            tech="C++"
           />
           <ProjectItem
-            title='MultiPL-E Objective-C Translator'
+            title="MultiPL-E Objective-C Translator"
             backgroundImg={multipleImg}
-            projectUrl='/research'
-            tech='Python, Obj-C, Code LLMs'
-           
+            projectUrl="/research"
+            tech="Python, Obj-C, Code LLMs"
           />
           <ProjectItem
-            title='Portfolio Website'
+            title="Portfolio Website"
             backgroundImg={webImg}
-            projectUrl='/portfoliowebsite'
-            tech='Next.js, Tailwind, Spotify API'
-            
+            projectUrl="/portfoliowebsite"
+            tech="Next.js, Tailwind, Spotify API"
           />
-           <ProjectItem
-            title='First Project Ever - Simple Platformer Game'
+          <ProjectItem
+            title="First Project Ever - Simple Platformer Game"
             backgroundImg={stonksImg}
-            projectUrl='/firstgame'
-            tech='Unity, C#'
-            
+            projectUrl="/firstgame"
+            tech="Unity, C#"
           />
         </div>
       </div>
