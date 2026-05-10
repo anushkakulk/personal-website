@@ -11,8 +11,8 @@ const experience = [
     badge: "Co-op · 2 terms",
     badgeColor: "teal",
     bullets: [
-      { text: "Engineered C/C++ drivers and Python software for calibration and operation of a next-gen indirect time-of-flight sensor on NVIDIA Jetson Orin", highlight: "NVIDIA Jetson Orin" },
-      { text: "Automated motor-based calibration system, achieving 40% faster alignment and reprojection error under 0.02 px", highlight: "40% faster alignment" },
+      { text: "Engineered C drivers and Python software for calibration and operation of a next-gen indirect time-of-flight sensor on NVIDIA Jetson Orin", highlight: "NVIDIA Jetson Orin" },
+      { text: "Automated motor-based 2D/3D camera calibration system, achieving 40% faster alignment and reprojection error under 0.02 px", highlight: "40% faster alignment" },
     ],
   },
   {
@@ -22,7 +22,7 @@ const experience = [
     badge: "Intern",
     badgeColor: "blue",
     bullets: [
-      { text: "Deployed a containerized microservice with CI/CD to automate health checks for GB300 liquid-cooled GPU servers with NVIDIA B300 GPUs", highlight: "GB300 liquid-cooled GPU servers" },
+      { text: "Deployed a containerized microservice with CI/CD to automate health checks for NVIDIA GB300 liquid-cooled GPU servers", highlight: "NVIDIA GB300 liquid-cooled GPU servers" },
       { text: "Built 75+ hardware and config checks validating servers at datacenter cluster scale" },
     ],
   },
@@ -73,6 +73,10 @@ const toolGroups = [
       "Mobile Robotics",
       "Natural Language Processing",
       "Computer Systems",
+      "Object Oriented Design",
+      "Digital Design and Computer Architecture",
+      "Database Design",
+      "Robot Dynamics and Control",
     ],
   },
 ];
