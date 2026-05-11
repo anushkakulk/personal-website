@@ -9,6 +9,8 @@ import webImg from "../public/assets/covers/thisone.png";
 import tictactoe from "../public/assets/projects/tictactoegameplay.gif";
 import robotgrasp from "../public/assets/projects/robot-grasper.png";
 import courtImg from "../public/assets/projects/courtUML.png";
+import playspace from "../public/assets/projects/playspace.png";
+import sngr from "../public/assets/projects/sngr.png";
 import ReactTypingEffect from "react-typing-effect";
 import ProjectItem from "../components/ProjectItem";
 
@@ -26,6 +28,13 @@ const Projects = () => {
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
           <ProjectItem
+            title="Selective Non-Gaussian Refinement (SNGR) for SLAM"
+            backgroundImg={sngr}
+            projectUrl="/sngr"
+            tech="Python"
+            className=" project-container project-item"
+          />
+          <ProjectItem
             title="Robot Grasp Detection Model"
             backgroundImg={robotgrasp}
             projectUrl="/graspsim"
@@ -38,6 +47,14 @@ const Projects = () => {
             backgroundImg={tictactoe}
             projectUrl="/tictactoe"
             tech="ROS, Python"
+            className=" project-container project-item"
+          />
+
+          <ProjectItem
+            title="PlaySpace!"
+            backgroundImg={playspace}
+            projectUrl="/playspace"
+            tech="TypeScript, React, MongoDB"
             className=" project-container project-item"
           />
 

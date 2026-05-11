@@ -35,13 +35,13 @@ const About = () => {
             </p>
             <p className="py-2">
               Throughout my college experience, I had the incredible opportunity
-              to work on production systems and apply what I've learned in the
-              classroom. At Amazon Robotics, I built sensor fusion pipelines and
-              calibration systems for next-generation autonomous robots. At
-              Meta, I deployed infrastructure for liquid-cooled GPU clusters
-              powering AI inference at datacenter scale. And at NASA's Jet
-              Propulsion Laboratory, I benchmarked flight software and
-              perception algorithms for the Mars Sample Return mission.
+              to work on production systems. At Amazon Robotics, I built sensor
+              fusion pipelines and calibration systems for next-generation
+              autonomous robots. At Meta, I deployed infrastructure for
+              liquid-cooled GPU clusters powering AI inference at datacenter
+              scale. And at NASA Jet Propulsion Laboratory, I benchmarked flight
+              software and perception algorithms for the Mars Sample Return
+              mission.
             </p>
           </div>
         </div>
