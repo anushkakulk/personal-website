@@ -127,12 +127,6 @@ const Interests = () => {
                 what I'm listening to, courtesy of some Spotify Web API
                 integration!
               </p>
-              <div className="flex justify-center items-center py-4">
-                <FaSpotify className=" mr-2" />
-                <p className="text-center text-xs sm:text-lg text-[#68B0AB] text-md">
-                  My top tracks from the past month, updated daily:
-                </p>
-              </div>
             </div>
             {/* <div className="flex gap-4 justify-center sm:flex-row items-center my-3 mx-auto">
             {tracks.slice(0, 3).map((track) => (
@@ -168,9 +162,9 @@ const Interests = () => {
                     last 30 days.
                   </p>
                 </div>
-                <div className="inline-flex items-center gap-2 rounded-full bg-[#E6F4EF] px-4 py-2 text-sm font-medium text-[#2F6A5F] shadow-sm">
+                {/* <div className="inline-flex items-center gap-2 rounded-full bg-[#E6F4EF] px-4 py-2 text-sm font-medium text-[#2F6A5F] shadow-sm">
                   <FaSpotify />
-                </div>
+                </div> */}
               </div>
             </div>
             {validTracks.length > 0 ? (
@@ -223,20 +217,6 @@ const Interests = () => {
               <div className="mt-6">
                 {validSongUrl ? (
                   <div className="rounded-[1.75rem] overflow-hidden border border-slate-200 shadow-xl bg-slate-950">
-                    <div className="p-5 text-white">
-                      <p className="text-sm uppercase tracking-[0.2em] text-slate-300">
-                        Now playing
-                      </p>
-                      <p className="mt-2 text-lg font-semibold">
-                        {title || "Unknown track"}
-                      </p>
-                      <p className="text-sm text-slate-300">
-                        {artist || "Unknown artist"}
-                      </p>
-                      {album ? (
-                        <p className="text-sm text-slate-400">{album}</p>
-                      ) : null}
-                    </div>
                     <iframe
                       src={`https://open.spotify.com/embed?uri=${encodeURIComponent(songUrl)}`}
                       className="w-full h-44"
@@ -257,9 +237,6 @@ const Interests = () => {
         <div className="max-w-[1240px] mx-auto py-20 px-4 sm:px-6">
           <div className="relative w-full rounded-[2rem] bg-white/95 border border-slate-200 shadow-[0_25px_80px_-40px_rgba(15,23,42,0.15)] p-8">
             <div className="flex flex-col items-center gap-4 pb-6 border-b border-slate-200">
-              <div className="inline-flex items-center gap-3 rounded-full bg-[#E6F4EF] px-4 py-2 text-sm font-semibold text-[#2F6A5F] shadow-sm">
-                <FaBook /> Bookshelf highlights
-              </div>
               <div className="text-center">
                 <p className="text-lg font-semibold text-slate-900">
                   A stroll through my bookshelf: my latest and greatest reads

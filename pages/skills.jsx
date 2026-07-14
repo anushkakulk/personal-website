@@ -14,8 +14,6 @@ const experience = [
     company: "Amazon Robotics",
     role: "Sensor Embedded Software, Co-op",
     date: "Jul 2024 to Dec 2024 · Aug 2025 to Dec 2025 · North Reading, MA",
-    badge: "Co-op · 2 terms",
-    badgeColor: "teal",
     bullets: [
       {
         text: "Engineered C drivers and Python software for calibration and operation of a next-gen indirect time-of-flight sensor on NVIDIA Jetson Orin",
@@ -31,8 +29,6 @@ const experience = [
     company: "Meta",
     role: "Production Systems Engineer, Intern",
     date: "May 2025 to Aug 2025 · Menlo Park, CA",
-    badge: "Intern",
-    badgeColor: "blue",
     bullets: [
       {
         text: "Deployed a containerized microservice with CI/CD to automate health checks for NVIDIA GB300 liquid-cooled GPU servers",
@@ -47,8 +43,6 @@ const experience = [
     company: "NASA Jet Propulsion Laboratory",
     role: "Flight Software Intern, Mars Sample Return",
     date: "Jan 2025 to Mar 2025 · Remote",
-    badge: "Intern",
-    badgeColor: "amber",
     bullets: [
       {
         text: "Developed C-based testing frameworks for the Mars Sample Return Lander's vision compute element, including 3D pose estimation algorithms",
@@ -152,11 +146,7 @@ const toolGroups = [
   },
 ];
 
-const badgeStyles = {
-  teal: "bg-[#E6F4EF] text-[#2F6A5F]",
-  blue: "bg-[#E6EEF8] text-[#1E4A80]",
-  amber: "bg-[#FBF0DC] text-[#7A4C0A]",
-};
+
 
 const renderWithHighlight = (text, highlight) => {
   if (!highlight) return text;
@@ -194,11 +184,6 @@ const TimelineItem = ({ item }) => {
             <p className="text-sm text-slate-500 mt-0.5">{item.role}</p>
             <p className="text-xs text-slate-400 mt-0.5">{item.date}</p>
           </div>
-          <span
-            className={`shrink-0 text-xs font-medium px-3 py-1 rounded-full ${badgeStyles[item.badgeColor]}`}
-          >
-            {item.badge}
-          </span>
         </div>
         {open && (
           <ul className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
